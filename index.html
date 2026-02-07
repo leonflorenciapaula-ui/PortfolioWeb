@@ -254,6 +254,71 @@
   height: 100%;
   object-fit: contain; /* 🔑 NO CORTA */
 }
+@media (max-width: 768px) {
+
+  /* NAV */
+  nav {
+    padding: 1rem 1.2rem;
+    flex-direction: column;
+    gap: .8rem;
+    text-align: center;
+  }
+
+  nav > div {
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* SECCIONES */
+  section {
+    padding: 4rem 1.2rem;
+    min-height: auto;
+  }
+
+  /* HERO */
+  .hero-text h1 {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .hero-text span {
+    font-size: 1rem;
+  }
+
+  /* GRID */
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  /* CARDS */
+  .card {
+    padding: 1.2rem;
+  }
+
+  /* PROJECT CARDS */
+  .project-card {
+    padding: 1.4rem;
+  }
+
+  /* IMAGEN / VIDEO PREVIEW */
+  .video-box,
+  .img-box {
+    width: 100%;
+    height: 180px;
+  }
+
+  /* VIDEOS INSTAGRAM */
+  .video iframe {
+    aspect-ratio: 9 / 16;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 2rem 1rem;
+    font-size: .9rem;
+  }
+}
 
 
   </style>
