@@ -319,6 +319,20 @@
     font-size: .9rem;
   }
 }
+@media (max-width: 768px) {
+
+  /* Apagar video fondo */
+  .bg-video video {
+    display: none;
+  }
+
+  /* Fondo estático */
+  body {
+    background: 
+      linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+      url("hero-mobile.jpg") center / cover no-repeat fixed;
+  }
+}
 
 
   </style>
