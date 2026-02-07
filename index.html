@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Florencia León – Portfolio</title>
+
+  <style>
+    :root{
+      --black:#1a1a1a;
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    body{
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background:#000;
+      color:white;
+      line-height:1.4;
+      scroll-behavior:smooth;
+    }
+
+    /* =====================
+       VIDEO FONDO
+    ====================== */
+    .bg-video{
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      overflow:hidden;
+    }
+
+    .bg-video video{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    /* =====================
+       NAV
+    ====================== */
+    nav{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      padding:1rem 6vw;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      z-index:1000;
+      background:transparent;
+      color:white;
+      text-shadow:0 2px 10px rgba(0,0,0,.5);
+    }
+
+    nav a{
+      color:white;
+      text-decoration:none;
+      font-weight:500;
+    }
+
+    nav a:hover{
+      opacity:.7;
+    }
+
+    nav strong{
+      font-weight:600;
+      letter-spacing:.5px;
+    }
+
+    /* =====================
+       SECCIONES
+    ====================== */
+    section{
+      min-height:100vh;
+      padding:6vw;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      position:relative;
+      z-index:2;
+    }
+
+    /* HERO */
+    .hero-text{
+      max-width:720px;
+    }
+
+    .hero-text h1{
+      font-size:clamp(2.5rem,6vw,5rem);
+      font-weight:700;
+    }
+
+    .hero-text span{
+      font-style:italic;
+      font-size:1.2rem;
+      font-weight:400;
+    }
+
+    /* TITULOS */
+    h2{
+      font-size:clamp(2rem,5vw,3.5rem);
+      margin-bottom:2rem;
+    }
+
+    /* GRID */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:2rem;
+    }
+
+    /* CARDS */
+    .card{
+      background:white;
+      color:var(--black);
+      border-radius:16px;
+      padding:1.5rem;
+      box-shadow:0 10px 30px rgba(0,0,0,.1);
+      transition:transform .3s ease;
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+    }
+
+    .card h3{
+      margin-bottom:.5rem;
+    }
+
+    .card a{
+      color:var(--black);
+      text-decoration:none;
+      font-weight:500;
+    }
+
+    /* VIDEOS */
+    .video iframe{
+      width:100%;
+      aspect-ratio:9/16;
+      border:none;
+      border-radius:12px;
+    }
+
+    /* ANIMACIONES */
+    .fade{
+      opacity:0;
+      transform:translateY(40px);
+      transition:all .8s ease;
+    }
+
+    .fade.show{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    /* FOOTER */
+    footer{
+      padding:3rem;
+      text-align:center;
+      background:#000;
+      color:white;
+      position:relative;
+      z-index:2;
+    }
+    .video-box {
+  width: 220px;      /* tamaño del cuadrito */
+  height: 140px;
+  border-radius: 12px;
+  overflow: hidden;  /* recorta el video */
+}
+
+.video-box video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* no se deforma */
+}
+.project-card {
+  padding: 20px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.video-box {
+  width: 200px;
+  height: 130px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.video-box video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-desc {
+  font-size: 14px;
+  line-height: 1.4;
+  opacity: 0.85;
+}
+
+.project-tags {
+  font-size: 12px;
+  opacity: 0.6;
+}
+.img-box {
+  width: 200px;
+  height: 130px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.video-box,
+.img-box {
+  width: 220px;
+  height: 220px;
+}
+.project-card {
+  padding: 28px; /* antes 20px */
+}
+/* CONTENEDORES */
+.video-box,
+.img-box {
+  width: 260px;
+  height: 170px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fffff; /* fondo para cuando sobra espacio */
+}
+
+/* VIDEO */
+.video-box video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* IMAGEN */
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* 🔑 NO CORTA */
+}
+
+
+  </style>
+</head>
+
+<body>
+
+  <!-- VIDEO FONDO -->
+  <div class="bg-video">
+    <video autoplay muted loop playsinline>
+      <source src="hero-video.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <strong>Florencia León</strong>
+    <div style="display:flex;gap:1.5rem;">
+      <a href="#diseno">Diseño</a>
+      <a href="#video">Video</a>
+      <a href="#multimedia">Multimedia</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section>
+    <div class="hero-text fade">
+      <h1><span>Técnica en Artes Multimediales</span></h1>
+      <p>Diseño, video y experiencias multimedia</p>
+    </div>
+  </section>
+
+  <!-- HOME -->
+  <section>
+    <div class="grid">
+      <div class="card fade">
+        <h3>Diseño</h3>
+        <p>Branding, identidad visual y diseño para redes sociales.</p>
+        <a href="#diseno">Ver proyectos →</a>
+      </div>
+      <div class="card fade">
+        <h3>Video</h3>
+        <p>Edición de video y motion graphics para contenido digital.</p>
+        <a href="#video">Ver videos →</a>
+      </div>
+      <div class="card fade">
+        <h3>Multimedia</h3>
+        <p>Proyectos académicos e instalaciones multimedia.</p>
+        <a href="#multimedia">Ver proyectos →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section id="video">
+    <h2 class="fade">Video</h2>
+    <p class="fade">
+      Durante los últimos meses trabajé editando videos para una agencia freelance,
+      produciendo contenido audiovisual para redes sociales.
+    </p>
+
+    <div class="grid">
+      <div class="video fade"><iframe src="https://www.instagram.com/reel/DSVCinljlJo/embed"></iframe></div>
+      <div class="video fade"><iframe src="https://www.instagram.com/reel/DQuVLpODoAF/embed"></iframe></div>
+      <div class="video fade"><iframe src="https://www.instagram.com/reel/DQ6828zjvwi/embed"></iframe></div>
+      <div class="video fade"><iframe src="https://www.instagram.com/reel/DSu5YWEEXrH/embed"></iframe></div>
+      <div class="video fade"><iframe src="https://www.instagram.com/reel/DS5J9ukEc8D/embed"></iframe></div>
+      <div class="video fade"><iframe src="https://www.instagram.com/reel/DTLGknaEUoQ/embed"></iframe></div>
+      <div class="video fade"><iframe src="https://www.instagram.com/reel/DTk1LiGkcRs/embed"></iframe></div>
+      <div class="video fade"><iframe src="https://www.instagram.com/reel/DSpg3_rEbde/embed"></iframe></div>
+      <div class="video fade"><iframe src="https://www.instagram.com/reel/DSSUxG4EbIu/embed"></iframe></div>
+      <div class="video fade"><iframe src="https://www.instagram.com/reel/DURZDbBkdPo/embed"></iframe></div>
+      <div class="video fade"><iframe src="https://www.instagram.com/reel/DRzT_9bjv2o/embed"></iframe></div>
+      <div class="video fade"><iframe src="https://www.instagram.com/reel/DR5BXDkAHCZ/embed"></iframe></div>
+    </div>
+  </section>
+
+  <!-- DISEÑO -->
+<section id="diseno">
+  <h2 class="fade">Diseño gráfico</h2>
+
+  <p class="fade">
+    Selección de proyectos de diseño gráfico, branding y piezas editoriales.
+  </p>
+
+  <div class="grid">
+
+    <!-- Campaña social -->
+    <div class="card fade project-card">
+
+      <div class="img-box">
+        <img 
+          src="voluntariado.png"
+          alt="Campaña de Ayuda Social">
+      </div>
+
+      <h3>Campaña de Ayuda Social</h3>
+
+      <p class="project-desc">
+        Diseño y gestión de contenidos para redes sociales.
+        Proyecto realizado en contexto de voluntariado.
+      </p>
+
+      <span class="project-tags">
+        Redes sociales · Diseño gráfico · Comunicación
+      </span>
+    </div>
+
+    <!-- Editorial -->
+    <div class="card fade project-card">
+
+      <div class="img-box">
+        <img 
+          src="libros.png"
+          alt="Rediseños editoriales">
+      </div>
+
+      <h3>Rediseños editoriales</h3>
+
+      <p class="project-desc">
+        Proyecto ficticio de rediseño de portadas y piezas editoriales,
+        explorando composición tipográfica y jerarquías visuales.
+      </p>
+
+      <span class="project-tags">
+        Editorial · Tipografía · Composición
+      </span>
+    </div>
+
+    <!-- Rebranding -->
+    <div class="card fade project-card">
+
+      <div class="img-box">
+        <img 
+          src="mardel.png"
+          alt="Rebranding turístico Mar del Plata">
+      </div>
+
+      <h3>Rebranding turístico · Mar del Plata</h3>
+
+      <p class="project-desc">
+        Desarrollo de identidad visual y aplicaciones gráficas
+        para una propuesta de rebranding turístico.
+      </p>
+
+      <span class="project-tags">
+        Branding · Identidad visual · Turismo
+      </span>
+    </div>
+
+    <!-- Posters -->
+    <div class="card fade project-card">
+
+      <div class="img-box">
+        <img 
+          src="poster.png"
+          alt="Pósters para cine y series">
+      </div>
+
+      <h3>Pósters para cine y series</h3>
+
+      <p class="project-desc">
+        Serie de pósters gráficos inspirados en películas y series,
+        con foco en narrativa visual y estilo.
+      </p>
+
+      <span class="project-tags">
+        Póster · Cine · Diseño gráfico
+      </span>
+    </div>
+
+  </div>
+</section>
+
+  <!-- MULTIMEDIA -->
+<section id="multimedia">
+  <h2 class="fade">Multimedia</h2>
+
+  <div class="grid">
+
+    <!-- Aventura gráfica p5.js -->
+    <div class="card fade project-card">
+
+      <div class="video-box">
+        <video 
+       src="aventura.mp4"
+          autoplay
+          loop
+          muted
+          playsinline>
+        </video>
+      </div>
+
+      <h3>Aventura gráfica · p5.js</h3>
+
+      <p class="project-desc">
+        Aventura gráfica desarrollada con p5.js.
+        Diseño de gráficos y programación realizados íntegramente por mí.
+      </p>
+
+      <span class="project-tags">
+        Diseño gráfico · Programación · Interactividad
+      </span>
+    </div>
+
+    <!-- Tráiler 20 años -->
+    <div class="card fade project-card">
+
+      <div class="video-box">
+        <video 
+          src="trailer.mp4"
+          autoplay
+          loop
+          muted
+          playsinline>
+        </video>
+      </div>
+
+      <h3>Tráiler animado · 20 años de la carrera</h3>
+
+      <p class="project-desc">
+        Video animado realizado para la celebración de los 20 años de la carrera.
+        El proyecto fue publicado en las redes sociales oficiales de la universidad.
+      </p>
+
+      <span class="project-tags">
+        Motion design · Edición · Animación
+      </span>
+    </div>
+
+    <!-- Pantallas no planas -->
+    <div class="card fade project-card">
+
+      <div class="video-box">
+        <video 
+          src="noplanas.mp4"
+          autoplay
+          loop
+          muted
+          playsinline>
+        </video>
+      </div>
+
+      <h3>Visuales en pantallas no planas</h3>
+
+      <p class="project-desc">
+        Proyecto audiovisual adaptado a pantallas no planas,
+        basado en la obra del artista Rachel Rusic (1664–1750).
+      </p>
+
+      <span class="project-tags">
+        Arte digital · Instalación · Video experimental
+      </span>
+    </div>
+
+    <!-- Hydra -->
+    <div class="card fade project-card">
+
+      <div class="video-box">
+        <video 
+          src="hydra.mp4"
+          autoplay
+          loop
+          muted
+          playsinline>
+        </video>
+      </div>
+
+      <h3>Visuales generativas · Hydra</h3>
+
+      <p class="project-desc">
+        Visuales generativas en tiempo real realizadas con Hydra,
+        basadas en código y manipulación audiovisual en vivo.
+      </p>
+
+      <span class="project-tags">
+        Live coding · Visuales generativas · Tiempo real
+      </span>
+    </div>
+
+  </div>
+</section>
+
+ <!-- CONTACTO -->
+  <section id="contacto">
+    <h2 class="fade">Contacto</h2>
+    <p class="fade">Estoy en búsqueda de oportunidades laborales y colaboraciones creativas.</p>
+    <p class="fade"><strong>Email:</strong> leonflorenciapaula@gmail.com</p>
+    <p class="fade"><strong>Tel:</strong> +54 11 6615 9367</p>
+    <p class="fade"><strong>Instagram:</strong> <a href="https://www.instagram.com/flowerr.designs/" target="_blank">@flowerr.designs</a></p>
+
+    <h3 class="fade" style="margin-top:2rem">Herramientas y conocimientos</h3>
+    <p class="fade">Canva · CapCut · Figma · Illustrator · Photoshop (fuerte) · Premiere Pro · After Effects (básico) · HTML · CSS · JavaScript</p>
+  </section>
+
+  <footer>
+    <p>© 2025 · Florencia León</p>
+  </footer>
+
+
+  <script>
+    const items = document.querySelectorAll('.fade');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('show');
+        }
+      });
+    }, {threshold:0.2});
+    items.forEach(item => observer.observe(item));
+  </script>
+
+</body>
+</html>
