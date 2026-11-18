@@ -1,0 +1,10 @@
+PORTFOLIO FLORENCIA LEÓN
+
+Subí TODOS los archivos HTML, CSS y JS de esta carpeta al mismo directorio de tu hosting.
+
+IMPORTANTE: los archivos de medios originales NO estaban adjuntos. Copiá junto a estos archivos los siguientes recursos de tu portfolio original:
+hero-video.mp4, hero-mobile.jpg, foto-florencia.jpg, libros.png, poster.png, ilustracion-1.jpg, aventura.mp4, trailer.mp4, noplanas.mp4, hydra.mp4.
+
+Los reels y publicaciones de Instagram usan sus enlaces originales y necesitan conexión a internet. Instagram puede limitar la visualización de contenido incrustado; por eso cada publicación también tiene un enlace directo.
+
+Para compartir el portfolio por email, publicalo en un hosting web y enviá el enlace (no los archivos HTML como adjuntos).
