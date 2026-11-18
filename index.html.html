@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Florencia León – Portfolio</title>
+
+  <style>
+    :root{
+      --black:#1a1a1a;
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    body{
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background:#000;
+      color:white;
+      line-height:1.4;
+      scroll-behavior:smooth;
+    }
+
+    /* =====================
+       VIDEO FONDO
+    ====================== */
+    .bg-video{
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      overflow:hidden;
+    }
+
+    .bg-video video{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    /* =====================
+       NAV
+    ====================== */
+    nav{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      padding:1rem 6vw;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      z-index:1000;
+      background:transparent;
+      color:white;
+      text-shadow:0 2px 10px rgba(0,0,0,.5);
+    }
+
+    nav a{
+      color:white;
+      text-decoration:none;
+      font-weight:500;
+    }
+
+    nav a:hover{
+      opacity:.7;
+    }
+
+    nav strong{
+      font-weight:600;
+      letter-spacing:.5px;
+    }
+
+    /* =====================
+       SECCIONES
+    ====================== */
+    section{
+      min-height:100vh;
+      padding:6vw;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      position:relative;
+      z-index:2;
+    }
+
+    /* HERO */
+    .hero-text{
+      max-width:720px;
+    }
+
+    .hero-text h1{
+      font-size:clamp(2.5rem,6vw,5rem);
+      font-weight:700;
+    }
+
+    .hero-text span{
+      font-style:italic;
+      font-size:1.2rem;
+      font-weight:400;
+    }
+
+    /* TITULOS */
+    h2{
+      font-size:clamp(2rem,5vw,3.5rem);
+      margin-bottom:2rem;
+    }
+
+    /* GRID */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:2rem;
+    }
+
+    /* CARDS */
+    .card{
+      background:white;
+      color:var(--black);
+      border-radius:16px;
+      padding:1.5rem;
+      box-shadow:0 10px 30px rgba(0,0,0,.1);
+      transition:transform .3s ease;
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+    }
+
+    .card h3{
+      margin-bottom:.5rem;
+    }
+
+    .card a{
+      color:var(--black);
+      text-decoration:none;
+      font-weight:500;
+    }
+
+    /* VIDEOS */
+    .video iframe{
+      width:100%;
+      aspect-ratio:9/16;
+      border:none;
+      border-radius:12px;
+    }
+
+    /* ANIMACIONES */
+    .fade{
+      opacity:0;
+      transform:translateY(40px);
+      transition:all .8s ease;
+    }
+
+    .fade.show{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    /* FOOTER */
+    footer{
+      padding:3rem;
+      text-align:center;
+      background:#000;
+      color:white;
+      position:relative;
+      z-index:2;
+    }
+    .video-box {
+  width: 220px;      /* tamaño del cuadrito */
+  height: 140px;
+  border-radius: 12px;
+  overflow: hidden;  /* recorta el video */
+}
+
+.video-box video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* no se deforma */
+}
+.project-card {
+  padding: 20px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.video-box {
+  width: 200px;
+  height: 130px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.video-box video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-desc {
+  font-size: 14px;
+  line-height: 1.4;
+  opacity: 0.85;
+}
+
+.project-tags {
+  font-size: 12px;
+  opacity: 0.6;
+}
+.img-box {
+  width: 200px;
+  height: 130px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.video-box,
+.img-box {
+  width: 220px;
+  height: 220px;
+}
+.project-card {
+  padding: 28px; /* antes 20px */
+}
+/* CONTENEDORES */
+.video-box,
+.img-box {
+  width: 260px;
+  height: 170px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fffff; /* fondo para cuando sobra espacio */
+}
+
+/* VIDEO */
+.video-box video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* IMAGEN */
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* 🔑 NO CORTA */
+}
+@media (max-width: 768px) {
+
+  /* NAV */
+  nav {
+    padding: 1rem 1.2rem;
+    flex-direction: column;
+    gap: .8rem;
+    text-align: center;
+  }
+
+  nav > div {
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* SECCIONES */
+  section {
+    padding: 4rem 1.2rem;
+    min-height: auto;
+  }
+
+  /* HERO */
+  .hero-text h1 {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .hero-text span {
+    font-size: 1rem;
+  }
+
+  /* GRID */
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  /* CARDS */
+  .card {
+    padding: 1.2rem;
+  }
+
+  /* PROJECT CARDS */
+  .project-card {
+    padding: 1.4rem;
+  }
+
+  /* IMAGEN / VIDEO PREVIEW */
+  .video-box,
+  .img-box {
+    width: 100%;
+    height: 180px;
+  }
+
+  /* VIDEOS INSTAGRAM */
+  .video iframe {
+    aspect-ratio: 9 / 16;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 2rem 1rem;
+    font-size: .9rem;
+  }
+}
+@media (max-width: 768px) {
+
+  /* Apagar video fondo */
+  .bg-video video {
+    display: none;
+  }
+
+  /* Fondo estático */
+  body {
+    background: 
+      linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+      url("hero-mobile.jpg") center / cover no-repeat fixed;
+  }
+}
+
+
+
+/* Ajustes generales y responsive */
+html { scroll-padding-top: 90px; }
+nav { gap: 1rem; }
+nav > div { display:flex; gap:1.5rem; align-items:center; }
+.video-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap:1.5rem;
+  align-items:start;
+}
+.video-group { margin-top:2.5rem; }
+.video-group h3 { margin-bottom:1rem; font-size:1.35rem; }
+.video {
+  width:100%;
+  max-width:420px;
+  margin-inline:auto;
+  overflow:hidden;
+  border-radius:12px;
+  background:#111;
+}
+.video iframe {
+  display:block;
+  width:100%;
+  aspect-ratio:9/16;
+  border:0;
+  border-radius:12px;
+}
+.about-copy { max-width:850px; font-size:1.08rem; line-height:1.7; }
+.illustration-note { opacity:.8; margin-bottom:1.5rem; }
+.project-card .img-box { width:100%; height:220px; }
+.project-card .img-box img { object-fit:cover; }
+a { overflow-wrap:anywhere; }
+
+@media (max-width:768px) {
+  nav {
+    padding:.85rem 1rem;
+    flex-direction:column;
+    gap:.65rem;
+  }
+  nav strong { font-size:1rem; }
+  nav > div {
+    width:100%;
+    gap:.65rem 1rem;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+  nav a { font-size:.88rem; }
+  section { padding:6.5rem 1rem 3.5rem; }
+  section:first-of-type { padding-top:8rem; }
+  .grid { grid-template-columns:minmax(0,1fr); gap:1rem; }
+  .video-grid { grid-template-columns:minmax(0,1fr); gap:1.25rem; }
+  .video { max-width: min(100%, 390px); }
+  .video iframe { width:100%; }
+  .project-card { padding:1.1rem; }
+  .project-card .img-box { height:auto; aspect-ratio:4/3; }
+  .about-copy { font-size:1rem; }
+  footer { padding:1.5rem 1rem; }
+}
+@media (max-width:380px) {
+  nav > div { gap:.5rem .75rem; }
+  nav a { font-size:.82rem; }
+}
+
+
+.about-layout {
+  display:grid;
+  grid-template-columns:minmax(220px, 320px) minmax(0, 1fr);
+  gap:2.5rem;
+  align-items:center;
+  max-width:1050px;
+}
+.about-photo {
+  width:100%;
+  aspect-ratio:4/5;
+  border-radius:18px;
+  overflow:hidden;
+  background:#222;
+}
+.about-photo img {
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+@media (max-width:768px) {
+  .about-layout {
+    grid-template-columns:minmax(0, 1fr);
+    gap:1.5rem;
+  }
+  .about-photo {
+    width:min(100%, 300px);
+    margin-inline:auto;
+    aspect-ratio:4/5;
+  }
+}
+
+  </style>
+</head>
+
+<body>
+
+  <!-- VIDEO FONDO -->
+  <div class="bg-video">
+    <video autoplay muted loop playsinline>
+      <source src="hero-video.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <strong>Florencia León</strong>
+    <div style="display:flex;gap:1.5rem;">
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#diseno">Diseño</a>
+      <a href="#ilustracion">Ilustración</a>
+      <a href="#video">Video</a>
+      <a href="#multimedia">Multimedia</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section>
+    <div class="hero-text fade">
+      <h1><span>Técnica en Artes Multimediales</span></h1>
+      <p>Diseño, video y experiencias multimedia</p>
+    </div>
+  </section>
+
+  <!-- HOME -->
+  <section>
+    <div class="grid">
+      <div class="card fade">
+        <h3>Diseño</h3>
+        <p>Branding, identidad visual y diseño para redes sociales.</p>
+        <a href="#diseno">Ver proyectos →</a>
+      </div>
+      <div class="card fade">
+        <h3>Video</h3>
+        <p>Edición de video y motion graphics para contenido digital.</p>
+        <a href="#video">Ver videos →</a>
+      </div>
+      <div class="card fade">
+        <h3>Multimedia</h3>
+        <p>Proyectos académicos e instalaciones multimedia.</p>
+        <a href="#multimedia">Ver proyectos →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE MÍ -->
+  <section id="sobre-mi">
+    <h2 class="fade">Sobre mí</h2>
+    <div class="about-layout fade">
+      <div class="about-photo">
+        <img src="foto-florencia.jpg" alt="Foto de Florencia León">
+      </div>
+      <div class="about-copy">
+
+      <p>
+        Soy Florencia León, Técnica en Artes Multimediales por la Universidad Nacional de las Artes.
+        Tengo 28 años y trabajo como diseñadora, ilustradora y editora de video.
+      </p>
+      <p style="margin-top:1rem">
+        Actualmente trabajo de manera freelance editando contenido audiovisual para
+        <strong>Lexicon Education</strong>, un instituto de idiomas, y <strong>Lexicon Go</strong>,
+        un instituto de idiomas orientado a misioneros cristianos.
+      </p>
+      <p style="margin-top:1rem">
+        También formo parte del equipo de Creativos de <strong>Cristo para Todos</strong>,
+        colaborando en comunicación y marketing.
+      </p>
+    </div>
+    </div>
+  </section>
+
+  <!-- VIDEO -->
+  <section id="video">
+    <h2 class="fade">Video</h2>
+    <p class="fade">
+      Selección de trabajos de edición de contenido audiovisual para redes sociales,
+      realizados para agencias y proyectos de comunicación.
+    </p>
+
+    <div class="video-group">
+      <h3 class="fade">Lexicon Go</h3>
+      <div class="video-grid">
+        <div class="video fade"><iframe src="https://www.instagram.com/p/DfUxTQZOuhh/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video editado para Lexicon Go"></iframe></div>
+        <div class="video fade"><iframe src="https://www.instagram.com/p/DfW6qO6O-C-/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video editado para Lexicon Go"></iframe></div>
+        <div class="video fade"><iframe src="https://www.instagram.com/p/DfZn5o-OIFd/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video editado para Lexicon Go"></iframe></div>
+        <div class="video fade"><iframe src="https://www.instagram.com/p/DfkiBmxNyx4/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video editado para Lexicon Go"></iframe></div>
+        <div class="video fade"><iframe src="https://www.instagram.com/p/DfuXuTSB4QX/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video editado para Lexicon Go"></iframe></div>
+      </div>
+    </div>
+
+    <div class="video-group">
+      <h3 class="fade">Lexicon Education</h3>
+      <div class="video-grid">
+        <div class="video fade"><iframe src="https://www.instagram.com/p/DdbmaeIFmF5/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video editado para Lexicon Education"></iframe></div>
+        <div class="video fade"><iframe src="https://www.instagram.com/p/De1uN1KJvwR/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video editado para Lexicon Education"></iframe></div>
+        <div class="video fade"><iframe src="https://www.instagram.com/p/De0Aax9ppJq/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video editado para Lexicon Education"></iframe></div>
+      </div>
+    </div>
+
+    <div class="video-group">
+      <h3 class="fade">ZN Agency</h3>
+      <p class="fade" style="margin-bottom:1.25rem">
+        Videos que edité para la agencia ZN Agency.
+      </p>
+      <div class="video-grid">
+        <div class="video fade"><iframe src="https://www.instagram.com/reel/DSVCinljlJo/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video editado para ZN Agency"></iframe></div>
+        <div class="video fade"><iframe src="https://www.instagram.com/reel/DQuVLpODoAF/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video editado para ZN Agency"></iframe></div>
+        <div class="video fade"><iframe src="https://www.instagram.com/reel/DQ6828zjvwi/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video editado para ZN Agency"></iframe></div>
+        <div class="video fade"><iframe src="https://www.instagram.com/reel/DSu5YWEEXrH/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video editado para ZN Agency"></iframe></div>
+        <div class="video fade"><iframe src="https://www.instagram.com/reel/DS5J9ukEc8D/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video editado para ZN Agency"></iframe></div>
+        <div class="video fade"><iframe src="https://www.instagram.com/reel/DTLGknaEUoQ/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video editado para ZN Agency"></iframe></div>
+        <div class="video fade"><iframe src="https://www.instagram.com/reel/DTk1LiGkcRs/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video editado para ZN Agency"></iframe></div>
+        <div class="video fade"><iframe src="https://www.instagram.com/reel/DSpg3_rEbde/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video editado para ZN Agency"></iframe></div>
+        <div class="video fade"><iframe src="https://www.instagram.com/reel/DSSUxG4EbIu/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video editado para ZN Agency"></iframe></div>
+        <div class="video fade"><iframe src="https://www.instagram.com/reel/DURZDbBkdPo/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video editado para ZN Agency"></iframe></div>
+        <div class="video fade"><iframe src="https://www.instagram.com/reel/DRzT_9bjv2o/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video editado para ZN Agency"></iframe></div>
+        <div class="video fade"><iframe src="https://www.instagram.com/reel/DR5BXDkAHCZ/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video editado para ZN Agency"></iframe></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISEÑO -->
+<section id="diseno">
+  <h2 class="fade">Diseño gráfico</h2>
+
+  <p class="fade">
+    Selección de proyectos de diseño gráfico, branding y piezas editoriales.
+  </p>
+
+  <div class="grid">
+
+    <!-- Diseño para redes sociales · Lexicon Education -->
+    <div class="card fade project-card">
+      <div class="img-box">
+        <img
+          src="lexicon-redes.jpg"
+          alt="Diseño para redes sociales de Lexicon Education">
+      </div>
+
+      <h3>Diseño para redes sociales · Lexicon Education</h3>
+
+      <p class="project-desc">
+        Diseño de piezas gráficas y contenido para el perfil de Instagram
+        del instituto de idiomas Lexicon Education.
+      </p>
+
+      <span class="project-tags">
+        Redes sociales · Diseño gráfico · Comunicación visual
+      </span>
+    </div>
+
+    <!-- Editorial -->
+    <div class="card fade project-card">
+
+      <div class="img-box">
+        <img 
+          src="libros.png"
+          alt="Rediseños editoriales">
+      </div>
+
+      <h3>Rediseños editoriales</h3>
+
+      <p class="project-desc">
+        Proyecto ficticio de rediseño de portadas y piezas editoriales,
+        explorando composición tipográfica y jerarquías visuales.
+      </p>
+
+      <span class="project-tags">
+        Editorial · Tipografía · Composición
+      </span>
+    </div>
+
+    <!-- Posters -->
+    <div class="card fade project-card">
+
+      <div class="img-box">
+        <img 
+          src="poster.png"
+          alt="Pósters para cine y series">
+      </div>
+
+      <h3>Pósters para cine y series</h3>
+
+      <p class="project-desc">
+        Serie de pósters gráficos inspirados en películas y series,
+        con foco en narrativa visual y estilo.
+      </p>
+
+      <span class="project-tags">
+        Póster · Cine · Diseño gráfico
+      </span>
+    </div>
+
+  </div>
+</section>
+
+  <!-- ILUSTRACIÓN -->
+  <section id="ilustracion">
+    <h2 class="fade">Ilustración</h2>
+    <p class="fade illustration-note">
+      Una selección de ilustraciones y exploraciones gráficas.
+    </p>
+    <div class="grid">
+      <div class="card fade project-card">
+        <div class="img-box">
+          <img src="ilustracion-1.jpg" alt="Ilustración de Florencia León">
+        </div>
+        <h3>Ilustraciones</h3>
+        <p class="project-desc">Trabajos de ilustración digital y exploración visual.</p>
+        <span class="project-tags">Ilustración digital · Photoshop</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MULTIMEDIA -->
+<section id="multimedia">
+  <h2 class="fade">Multimedia</h2>
+
+  <div class="grid">
+
+    <!-- Aventura gráfica p5.js -->
+    <div class="card fade project-card">
+
+      <div class="video-box">
+        <video 
+       src="aventura.mp4"
+          autoplay
+          loop
+          muted
+          playsinline>
+        </video>
+      </div>
+
+      <h3>Aventura gráfica · p5.js</h3>
+
+      <p class="project-desc">
+        Aventura gráfica desarrollada con p5.js.
+        Diseño de gráficos y programación realizados íntegramente por mí.
+      </p>
+
+      <span class="project-tags">
+        Diseño gráfico · Programación · Interactividad
+      </span>
+    </div>
+
+    <!-- Tráiler 20 años -->
+    <div class="card fade project-card">
+
+      <div class="video-box">
+        <video 
+          src="trailer.mp4"
+          autoplay
+          loop
+          muted
+          playsinline>
+        </video>
+      </div>
+
+      <h3>Tráiler animado · 20 años de la carrera</h3>
+
+      <p class="project-desc">
+        Video animado realizado para la celebración de los 20 años de la carrera.
+        El proyecto fue publicado en las redes sociales oficiales de la universidad.
+      </p>
+
+      <span class="project-tags">
+        Motion design · Edición · Animación
+      </span>
+    </div>
+
+    <!-- Pantallas no planas -->
+    <div class="card fade project-card">
+
+      <div class="video-box">
+        <video 
+          src="noplanas.mp4"
+          autoplay
+          loop
+          muted
+          playsinline>
+        </video>
+      </div>
+
+      <h3>Visuales en pantallas no planas</h3>
+
+      <p class="project-desc">
+        Proyecto audiovisual adaptado a pantallas no planas,
+        basado en la obra del artista Rachel Rusic (1664–1750).
+      </p>
+
+      <span class="project-tags">
+        Arte digital · Instalación · Video experimental
+      </span>
+    </div>
+
+    <!-- Hydra -->
+    <div class="card fade project-card">
+
+      <div class="video-box">
+        <video 
+          src="hydra.mp4"
+          autoplay
+          loop
+          muted
+          playsinline>
+        </video>
+      </div>
+
+      <h3>Visuales generativas · Hydra</h3>
+
+      <p class="project-desc">
+        Visuales generativas en tiempo real realizadas con Hydra,
+        basadas en código y manipulación audiovisual en vivo.
+      </p>
+
+      <span class="project-tags">
+        Live coding · Visuales generativas · Tiempo real
+      </span>
+    </div>
+
+  </div>
+</section>
+
+ <!-- CONTACTO -->
+  <section id="contacto">
+    <h2 class="fade">Contacto</h2>
+    <p class="fade">Estoy en búsqueda de oportunidades laborales y colaboraciones creativas.</p>
+    <p class="fade"><strong>Email:</strong> leonflorenciapaula@gmail.com</p>
+    <p class="fade"><strong>Tel:</strong> +54 11 6615 9367</p>
+    <p class="fade"><strong>Instagram:</strong> <a href="https://www.instagram.com/flowerr.designs/" target="_blank">@flowerr.designs</a></p>
+
+    <h3 class="fade" style="margin-top:2rem">Herramientas y conocimientos</h3>
+    <p class="fade">Canva · CapCut · Figma · Illustrator · Photoshop · Premiere Pro · After Effects (básico) · HTML · CSS · JavaScript</p>
+  </section>
+
+  <footer>
+    <p>© 2026 · Florencia León</p>
+  </footer>
+
+
+  <script>
+    const items = document.querySelectorAll('.fade');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('show');
+        }
+      });
+    }, {threshold:0.2});
+    items.forEach(item => observer.observe(item));
+  </script>
+
+</body>
+</html>
