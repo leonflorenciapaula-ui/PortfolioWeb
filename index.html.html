@@ -432,6 +432,35 @@ a { overflow-wrap:anywhere; }
   }
 }
 
+
+.instagram-gallery {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap:1rem;
+  align-items:start;
+  margin-top:1rem;
+}
+.instagram-embed {
+  width:100%;
+  max-width:540px;
+  margin:0 auto;
+  overflow:hidden;
+  border-radius:12px;
+  background:#fff;
+}
+.instagram-embed iframe {
+  display:block;
+  width:100%;
+  height:680px;
+  border:0;
+  background:#fff;
+}
+@media (max-width:768px) {
+  .instagram-gallery { grid-template-columns:minmax(0,1fr); }
+  .instagram-embed { max-width:100%; }
+  .instagram-embed iframe { height:680px; }
+}
+
   </style>
 </head>
 
@@ -494,21 +523,26 @@ a { overflow-wrap:anywhere; }
         <img src="foto-florencia.jpg" alt="Foto de Florencia León">
       </div>
       <div class="about-copy">
-
-      <p>
-        Soy Florencia León, Técnica en Artes Multimediales por la Universidad Nacional de las Artes.
-        Tengo 28 años y trabajo como diseñadora, ilustradora y editora de video.
-      </p>
-      <p style="margin-top:1rem">
-        Actualmente trabajo de manera freelance editando contenido audiovisual para
-        <strong>Lexicon Education</strong>, un instituto de idiomas, y <strong>Lexicon Go</strong>,
-        un instituto de idiomas orientado a misioneros cristianos.
-      </p>
-      <p style="margin-top:1rem">
-        También formo parte del equipo de Creativos de <strong>Cristo para Todos</strong>,
-        colaborando en comunicación y marketing.
-      </p>
-    </div>
+        <p>
+          Soy Florencia León, Técnica en Artes Multimediales por la Universidad Nacional de las Artes.
+          Tengo 28 años y trabajo como diseñadora, ilustradora y editora de video.
+        </p>
+        <p style="margin-top:1rem">
+          Actualmente trabajo de manera freelance creando contenido para
+          <strong>Lexicon Education</strong>, <strong>Lexicon Go</strong> y
+          <strong>Quinta Las Marlenes</strong>. Además, formo parte del equipo de Creativos
+          de <strong>Cristo para Todos</strong>, colaborando en comunicación y marketing.
+        </p>
+        <p style="margin-top:1rem">
+          Aunque comencé enfocándome en la edición de video, hoy también realizo grabación
+          y producción audiovisual. Para trabajar utilizo una DJI Osmo Pocket 4,
+          un micrófono DJI y dos micrófonos corbateros Soul.
+        </p>
+        <p style="margin-top:1rem">
+          Mis herramientas principales son <strong>Photoshop, Illustrator y CapCut</strong>.
+          También manejo Canva, Premiere Pro y Figma.
+        </p>
+      </div>
     </div>
   </section>
 
@@ -541,6 +575,18 @@ a { overflow-wrap:anywhere; }
     </div>
 
     <div class="video-group">
+      <h3 class="fade">Quinta Las Marlenes</h3>
+      <p class="fade" style="margin-bottom:1.25rem">
+        Grabación, producción y edición de contenido audiovisual para redes sociales.
+      </p>
+      <div class="video-grid">
+        <div class="video fade"><iframe src="https://www.instagram.com/p/Dff0jdaBHR6/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video para Quinta Las Marlenes"></iframe></div>
+        <div class="video fade"><iframe src="https://www.instagram.com/p/Dff4DaLy3Sh/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video para Quinta Las Marlenes"></iframe></div>
+        <div class="video fade"><iframe src="https://www.instagram.com/p/DfstLBwt2XO/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video para Quinta Las Marlenes"></iframe></div>
+      </div>
+    </div>
+
+    <div class="video-group">
       <h3 class="fade">ZN Agency</h3>
       <p class="fade" style="margin-bottom:1.25rem">
         Videos que edité para la agencia ZN Agency.
@@ -565,75 +611,105 @@ a { overflow-wrap:anywhere; }
   <!-- DISEÑO -->
 <section id="diseno">
   <h2 class="fade">Diseño gráfico</h2>
-
   <p class="fade">
-    Selección de proyectos de diseño gráfico, branding y piezas editoriales.
+    Selección de proyectos de diseño gráfico, comunicación visual y piezas editoriales.
   </p>
 
   <div class="grid">
-
-    <!-- Diseño para redes sociales · Lexicon Education -->
+    <!-- Folletos Halloween -->
     <div class="card fade project-card">
-      <div class="img-box">
-        <img
-          src="lexicon-redes.jpg"
-          alt="Diseño para redes sociales de Lexicon Education">
-      </div>
-
-      <h3>Diseño para redes sociales · Lexicon Education</h3>
-
+      <h3>Folletos de Halloween · Creativos CPT</h3>
       <p class="project-desc">
-        Diseño de piezas gráficas y contenido para el perfil de Instagram
-        del instituto de idiomas Lexicon Education.
+        Diseño de folletos con una propuesta estética basada en colores y recursos gráficos
+        que representan nuestra cultura, incorporando elementos inspirados en el fileteado porteño.
+        Ilustraciones realizadas en Photoshop y maquetación en Illustrator.
       </p>
+      <span class="project-tags">Diseño editorial · Ilustración · Photoshop · Illustrator</span>
+      <div class="instagram-embed">
+        <iframe src="https://www.instagram.com/p/Df1_2cWpcN2/embed"
+          loading="lazy" allowtransparency="true" allowfullscreen
+          title="Carrusel de folletos de Halloween"></iframe>
+      </div>
+      <a href="https://www.instagram.com/p/Df1_2cWpcN2/?img_index=1"
+         target="_blank" rel="noopener noreferrer">Ver publicación en Instagram →</a>
+    </div>
 
+    <!-- Lexicon Education -->
+    <div class="card fade project-card">
+      <h3>Diseño para redes sociales · Lexicon Education</h3>
+      <p class="project-desc">
+        Comencé editando videos para el instituto y actualmente también desarrollo
+        presentaciones en PowerPoint, piezas para redes sociales y portadas de Reels.
+        Diseño contenido visual para acompañar la comunicación de sus cursos y propuestas.
+      </p>
       <span class="project-tags">
-        Redes sociales · Diseño gráfico · Comunicación visual
+        Diseño para redes · PowerPoint · Portadas de Reels · Edición de video
       </span>
+      <div class="instagram-gallery">
+        <div class="instagram-embed">
+          <iframe src="https://www.instagram.com/p/DfK0p3_Fn8B/embed"
+            loading="lazy" allowtransparency="true" allowfullscreen
+            title="Diseños para Lexicon Education"></iframe>
+        </div>
+        <div class="instagram-embed">
+          <iframe src="https://www.instagram.com/p/Dd2E6qEEpif/embed"
+            loading="lazy" allowtransparency="true" allowfullscreen
+            title="Selección de diseños para Lexicon Education"></iframe>
+        </div>
+      </div>
+      <a href="https://www.instagram.com/p/DfK0p3_Fn8B/?img_index=1"
+         target="_blank" rel="noopener noreferrer">Ver publicación en Instagram →</a>
+    </div>
+
+    <!-- Quinta Las Marlenes -->
+    <div class="card fade project-card">
+      <h3>Diseño y contenido · Quinta Las Marlenes</h3>
+      <p class="project-desc">
+        Diseño de publicaciones para redes sociales y edición de contenido audiovisual
+        para comunicar los espacios, eventos y propuestas de la quinta.
+      </p>
+      <span class="project-tags">Diseño para redes · Edición de video · Contenido digital</span>
+      <div class="instagram-gallery">
+        <div class="instagram-embed">
+          <iframe src="https://www.instagram.com/p/DeztOe2DzsH/embed"
+            loading="lazy" allowtransparency="true" allowfullscreen
+            title="Diseños y contenido de Quinta Las Marlenes"></iframe>
+        </div>
+        <div class="instagram-embed">
+          <iframe src="https://www.instagram.com/p/DfPl8FTFj8O/embed"
+            loading="lazy" allowtransparency="true" allowfullscreen
+            title="Publicación de Quinta Las Marlenes"></iframe>
+        </div>
+      </div>
+      <a href="https://www.instagram.com/p/DeztOe2DzsH/?img_index=3"
+         target="_blank" rel="noopener noreferrer">Ver publicación en Instagram →</a>
     </div>
 
     <!-- Editorial -->
     <div class="card fade project-card">
-
       <div class="img-box">
-        <img 
-          src="libros.png"
-          alt="Rediseños editoriales">
+        <img src="libros.png" alt="Rediseños editoriales">
       </div>
-
       <h3>Rediseños editoriales</h3>
-
       <p class="project-desc">
         Proyecto ficticio de rediseño de portadas y piezas editoriales,
         explorando composición tipográfica y jerarquías visuales.
       </p>
-
-      <span class="project-tags">
-        Editorial · Tipografía · Composición
-      </span>
+      <span class="project-tags">Editorial · Tipografía · Composición</span>
     </div>
 
     <!-- Posters -->
     <div class="card fade project-card">
-
       <div class="img-box">
-        <img 
-          src="poster.png"
-          alt="Pósters para cine y series">
+        <img src="poster.png" alt="Pósters para cine y series">
       </div>
-
       <h3>Pósters para cine y series</h3>
-
       <p class="project-desc">
         Serie de pósters gráficos inspirados en películas y series,
         con foco en narrativa visual y estilo.
       </p>
-
-      <span class="project-tags">
-        Póster · Cine · Diseño gráfico
-      </span>
+      <span class="project-tags">Póster · Cine · Diseño gráfico</span>
     </div>
-
   </div>
 </section>
 
@@ -773,7 +849,7 @@ a { overflow-wrap:anywhere; }
     <p class="fade"><strong>Instagram:</strong> <a href="https://www.instagram.com/flowerr.designs/" target="_blank">@flowerr.designs</a></p>
 
     <h3 class="fade" style="margin-top:2rem">Herramientas y conocimientos</h3>
-    <p class="fade">Canva · CapCut · Figma · Illustrator · Photoshop · Premiere Pro · After Effects (básico) · HTML · CSS · JavaScript</p>
+    <p class="fade">Herramientas principales: Photoshop · Illustrator · CapCut. También: Canva · Premiere Pro · Figma · After Effects (básico) · HTML · CSS · JavaScript</p>
   </section>
 
   <footer>
