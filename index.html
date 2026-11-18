@@ -335,6 +335,132 @@
 }
 
 
+
+/* Ajustes generales y responsive */
+html { scroll-padding-top: 90px; }
+nav { gap: 1rem; }
+nav > div { display:flex; gap:1.5rem; align-items:center; }
+.video-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap:1.5rem;
+  align-items:start;
+}
+.video-group { margin-top:2.5rem; }
+.video-group h3 { margin-bottom:1rem; font-size:1.35rem; }
+.video {
+  width:100%;
+  max-width:420px;
+  margin-inline:auto;
+  overflow:hidden;
+  border-radius:12px;
+  background:#111;
+}
+.video iframe {
+  display:block;
+  width:100%;
+  aspect-ratio:9/16;
+  border:0;
+  border-radius:12px;
+}
+.about-copy { max-width:850px; font-size:1.08rem; line-height:1.7; }
+.illustration-note { opacity:.8; margin-bottom:1.5rem; }
+.project-card .img-box { width:100%; height:220px; }
+.project-card .img-box img { object-fit:cover; }
+a { overflow-wrap:anywhere; }
+
+@media (max-width:768px) {
+  nav {
+    padding:.85rem 1rem;
+    flex-direction:column;
+    gap:.65rem;
+  }
+  nav strong { font-size:1rem; }
+  nav > div {
+    width:100%;
+    gap:.65rem 1rem;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+  nav a { font-size:.88rem; }
+  section { padding:6.5rem 1rem 3.5rem; }
+  section:first-of-type { padding-top:8rem; }
+  .grid { grid-template-columns:minmax(0,1fr); gap:1rem; }
+  .video-grid { grid-template-columns:minmax(0,1fr); gap:1.25rem; }
+  .video { max-width: min(100%, 390px); }
+  .video iframe { width:100%; }
+  .project-card { padding:1.1rem; }
+  .project-card .img-box { height:auto; aspect-ratio:4/3; }
+  .about-copy { font-size:1rem; }
+  footer { padding:1.5rem 1rem; }
+}
+@media (max-width:380px) {
+  nav > div { gap:.5rem .75rem; }
+  nav a { font-size:.82rem; }
+}
+
+
+.about-layout {
+  display:grid;
+  grid-template-columns:minmax(220px, 320px) minmax(0, 1fr);
+  gap:2.5rem;
+  align-items:center;
+  max-width:1050px;
+}
+.about-photo {
+  width:100%;
+  aspect-ratio:4/5;
+  border-radius:18px;
+  overflow:hidden;
+  background:#222;
+}
+.about-photo img {
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+@media (max-width:768px) {
+  .about-layout {
+    grid-template-columns:minmax(0, 1fr);
+    gap:1.5rem;
+  }
+  .about-photo {
+    width:min(100%, 300px);
+    margin-inline:auto;
+    aspect-ratio:4/5;
+  }
+}
+
+
+.instagram-gallery {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap:1rem;
+  align-items:start;
+  margin-top:1rem;
+}
+.instagram-embed {
+  width:100%;
+  max-width:540px;
+  margin:0 auto;
+  overflow:hidden;
+  border-radius:12px;
+  background:#fff;
+}
+.instagram-embed iframe {
+  display:block;
+  width:100%;
+  height:680px;
+  border:0;
+  background:#fff;
+}
+@media (max-width:768px) {
+  .instagram-gallery { grid-template-columns:minmax(0,1fr); }
+  .instagram-embed { max-width:100%; }
+  .instagram-embed iframe { height:680px; }
+}
+
   </style>
 </head>
 
@@ -351,7 +477,9 @@
   <nav>
     <strong>Florencia León</strong>
     <div style="display:flex;gap:1.5rem;">
+      <a href="#sobre-mi">Sobre mí</a>
       <a href="#diseno">Diseño</a>
+      <a href="#ilustracion">Ilustración</a>
       <a href="#video">Video</a>
       <a href="#multimedia">Multimedia</a>
       <a href="#contacto">Contacto</a>
@@ -387,126 +515,221 @@
     </div>
   </section>
 
+  <!-- SOBRE MÍ -->
+  <section id="sobre-mi">
+    <h2 class="fade">Sobre mí</h2>
+    <div class="about-layout fade">
+      <div class="about-photo">
+        <img src="foto-florencia.jpg" alt="Foto de Florencia León">
+      </div>
+      <div class="about-copy">
+        <p>
+          Soy Florencia León, Técnica en Artes Multimediales por la Universidad Nacional de las Artes.
+          Tengo 28 años y trabajo como diseñadora, ilustradora y editora de video.
+        </p>
+        <p style="margin-top:1rem">
+          Actualmente trabajo de manera freelance creando contenido para
+          <strong>Lexicon Education</strong>, <strong>Lexicon Go</strong> y
+          <strong>Quinta Las Marlenes</strong>. Además, formo parte del equipo de Creativos
+          de <strong>Cristo para Todos</strong>, colaborando en comunicación y marketing.
+        </p>
+        <p style="margin-top:1rem">
+          Aunque comencé enfocándome en la edición de video, hoy también realizo grabación
+          y producción audiovisual. Para trabajar utilizo una DJI Osmo Pocket 4,
+          un micrófono DJI y dos micrófonos corbateros Soul.
+        </p>
+        <p style="margin-top:1rem">
+          Mis herramientas principales son <strong>Photoshop, Illustrator y CapCut</strong>.
+          También manejo Canva, Premiere Pro y Figma.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!-- VIDEO -->
   <section id="video">
     <h2 class="fade">Video</h2>
     <p class="fade">
-      Durante los últimos meses trabajé editando videos para una agencia freelance,
-      produciendo contenido audiovisual para redes sociales.
+      Selección de trabajos de edición de contenido audiovisual para redes sociales,
+      realizados para agencias y proyectos de comunicación.
     </p>
 
-    <div class="grid">
-      <div class="video fade"><iframe src="https://www.instagram.com/reel/DSVCinljlJo/embed"></iframe></div>
-      <div class="video fade"><iframe src="https://www.instagram.com/reel/DQuVLpODoAF/embed"></iframe></div>
-      <div class="video fade"><iframe src="https://www.instagram.com/reel/DQ6828zjvwi/embed"></iframe></div>
-      <div class="video fade"><iframe src="https://www.instagram.com/reel/DSu5YWEEXrH/embed"></iframe></div>
-      <div class="video fade"><iframe src="https://www.instagram.com/reel/DS5J9ukEc8D/embed"></iframe></div>
-      <div class="video fade"><iframe src="https://www.instagram.com/reel/DTLGknaEUoQ/embed"></iframe></div>
-      <div class="video fade"><iframe src="https://www.instagram.com/reel/DTk1LiGkcRs/embed"></iframe></div>
-      <div class="video fade"><iframe src="https://www.instagram.com/reel/DSpg3_rEbde/embed"></iframe></div>
-      <div class="video fade"><iframe src="https://www.instagram.com/reel/DSSUxG4EbIu/embed"></iframe></div>
-      <div class="video fade"><iframe src="https://www.instagram.com/reel/DURZDbBkdPo/embed"></iframe></div>
-      <div class="video fade"><iframe src="https://www.instagram.com/reel/DRzT_9bjv2o/embed"></iframe></div>
-      <div class="video fade"><iframe src="https://www.instagram.com/reel/DR5BXDkAHCZ/embed"></iframe></div>
+    <div class="video-group">
+      <h3 class="fade">Lexicon Go</h3>
+      <div class="video-grid">
+        <div class="video fade"><iframe src="https://www.instagram.com/p/DfUxTQZOuhh/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video editado para Lexicon Go"></iframe></div>
+        <div class="video fade"><iframe src="https://www.instagram.com/p/DfW6qO6O-C-/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video editado para Lexicon Go"></iframe></div>
+        <div class="video fade"><iframe src="https://www.instagram.com/p/DfZn5o-OIFd/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video editado para Lexicon Go"></iframe></div>
+        <div class="video fade"><iframe src="https://www.instagram.com/p/DfkiBmxNyx4/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video editado para Lexicon Go"></iframe></div>
+        <div class="video fade"><iframe src="https://www.instagram.com/p/DfuXuTSB4QX/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video editado para Lexicon Go"></iframe></div>
+      </div>
+    </div>
+
+    <div class="video-group">
+      <h3 class="fade">Lexicon Education</h3>
+      <div class="video-grid">
+        <div class="video fade"><iframe src="https://www.instagram.com/p/DdbmaeIFmF5/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video editado para Lexicon Education"></iframe></div>
+        <div class="video fade"><iframe src="https://www.instagram.com/p/De1uN1KJvwR/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video editado para Lexicon Education"></iframe></div>
+        <div class="video fade"><iframe src="https://www.instagram.com/p/De0Aax9ppJq/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video editado para Lexicon Education"></iframe></div>
+      </div>
+    </div>
+
+    <div class="video-group">
+      <h3 class="fade">Quinta Las Marlenes</h3>
+      <p class="fade" style="margin-bottom:1.25rem">
+        Grabación, producción y edición de contenido audiovisual para redes sociales.
+      </p>
+      <div class="video-grid">
+        <div class="video fade"><iframe src="https://www.instagram.com/p/Dff0jdaBHR6/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video para Quinta Las Marlenes"></iframe></div>
+        <div class="video fade"><iframe src="https://www.instagram.com/p/Dff4DaLy3Sh/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video para Quinta Las Marlenes"></iframe></div>
+        <div class="video fade"><iframe src="https://www.instagram.com/p/DfstLBwt2XO/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video para Quinta Las Marlenes"></iframe></div>
+      </div>
+    </div>
+
+    <div class="video-group">
+      <h3 class="fade">ZN Agency</h3>
+      <p class="fade" style="margin-bottom:1.25rem">
+        Videos que edité para la agencia ZN Agency.
+      </p>
+      <div class="video-grid">
+        <div class="video fade"><iframe src="https://www.instagram.com/reel/DSVCinljlJo/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video editado para ZN Agency"></iframe></div>
+        <div class="video fade"><iframe src="https://www.instagram.com/reel/DQuVLpODoAF/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video editado para ZN Agency"></iframe></div>
+        <div class="video fade"><iframe src="https://www.instagram.com/reel/DQ6828zjvwi/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video editado para ZN Agency"></iframe></div>
+        <div class="video fade"><iframe src="https://www.instagram.com/reel/DSu5YWEEXrH/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video editado para ZN Agency"></iframe></div>
+        <div class="video fade"><iframe src="https://www.instagram.com/reel/DS5J9ukEc8D/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video editado para ZN Agency"></iframe></div>
+        <div class="video fade"><iframe src="https://www.instagram.com/reel/DTLGknaEUoQ/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video editado para ZN Agency"></iframe></div>
+        <div class="video fade"><iframe src="https://www.instagram.com/reel/DTk1LiGkcRs/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video editado para ZN Agency"></iframe></div>
+        <div class="video fade"><iframe src="https://www.instagram.com/reel/DSpg3_rEbde/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video editado para ZN Agency"></iframe></div>
+        <div class="video fade"><iframe src="https://www.instagram.com/reel/DSSUxG4EbIu/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video editado para ZN Agency"></iframe></div>
+        <div class="video fade"><iframe src="https://www.instagram.com/reel/DURZDbBkdPo/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video editado para ZN Agency"></iframe></div>
+        <div class="video fade"><iframe src="https://www.instagram.com/reel/DRzT_9bjv2o/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video editado para ZN Agency"></iframe></div>
+        <div class="video fade"><iframe src="https://www.instagram.com/reel/DR5BXDkAHCZ/embed" loading="lazy" allowtransparency="true" allowfullscreen title="Video editado para ZN Agency"></iframe></div>
+      </div>
     </div>
   </section>
 
   <!-- DISEÑO -->
 <section id="diseno">
   <h2 class="fade">Diseño gráfico</h2>
-
   <p class="fade">
-    Selección de proyectos de diseño gráfico, branding y piezas editoriales.
+    Selección de proyectos de diseño gráfico, comunicación visual y piezas editoriales.
   </p>
 
   <div class="grid">
-
-    <!-- Campaña social -->
+    <!-- Folletos Halloween -->
     <div class="card fade project-card">
-
-      <div class="img-box">
-        <img 
-          src="voluntariado.png"
-          alt="Campaña de Ayuda Social">
-      </div>
-
-      <h3>Campaña de Ayuda Social</h3>
-
+      <h3>Folletos de Halloween · Creativos CPT</h3>
       <p class="project-desc">
-        Diseño y gestión de contenidos para redes sociales.
-        Proyecto realizado en contexto de voluntariado.
+        Diseño de folletos con una propuesta estética basada en colores y recursos gráficos
+        que representan nuestra cultura, incorporando elementos inspirados en el fileteado porteño.
+        Ilustraciones realizadas en Photoshop y maquetación en Illustrator.
       </p>
+      <span class="project-tags">Diseño editorial · Ilustración · Photoshop · Illustrator</span>
+      <div class="instagram-embed">
+        <iframe src="https://www.instagram.com/p/Df1_2cWpcN2/embed"
+          loading="lazy" allowtransparency="true" allowfullscreen
+          title="Carrusel de folletos de Halloween"></iframe>
+      </div>
+      <a href="https://www.instagram.com/p/Df1_2cWpcN2/?img_index=1"
+         target="_blank" rel="noopener noreferrer">Ver publicación en Instagram →</a>
+    </div>
 
+    <!-- Lexicon Education -->
+    <div class="card fade project-card">
+      <h3>Diseño para redes sociales · Lexicon Education</h3>
+      <p class="project-desc">
+        Comencé editando videos para el instituto y actualmente también desarrollo
+        presentaciones en PowerPoint, piezas para redes sociales y portadas de Reels.
+        Diseño contenido visual para acompañar la comunicación de sus cursos y propuestas.
+      </p>
       <span class="project-tags">
-        Redes sociales · Diseño gráfico · Comunicación
+        Diseño para redes · PowerPoint · Portadas de Reels · Edición de video
       </span>
+      <div class="instagram-gallery">
+        <div class="instagram-embed">
+          <iframe src="https://www.instagram.com/p/DfK0p3_Fn8B/embed"
+            loading="lazy" allowtransparency="true" allowfullscreen
+            title="Diseños para Lexicon Education"></iframe>
+        </div>
+        <div class="instagram-embed">
+          <iframe src="https://www.instagram.com/p/Dd2E6qEEpif/embed"
+            loading="lazy" allowtransparency="true" allowfullscreen
+            title="Selección de diseños para Lexicon Education"></iframe>
+        </div>
+      </div>
+      <a href="https://www.instagram.com/p/DfK0p3_Fn8B/?img_index=1"
+         target="_blank" rel="noopener noreferrer">Ver publicación en Instagram →</a>
+    </div>
+
+    <!-- Quinta Las Marlenes -->
+    <div class="card fade project-card">
+      <h3>Diseño y contenido · Quinta Las Marlenes</h3>
+      <p class="project-desc">
+        Diseño de publicaciones para redes sociales y edición de contenido audiovisual
+        para comunicar los espacios, eventos y propuestas de la quinta.
+      </p>
+      <span class="project-tags">Diseño para redes · Edición de video · Contenido digital</span>
+      <div class="instagram-gallery">
+        <div class="instagram-embed">
+          <iframe src="https://www.instagram.com/p/DeztOe2DzsH/embed"
+            loading="lazy" allowtransparency="true" allowfullscreen
+            title="Diseños y contenido de Quinta Las Marlenes"></iframe>
+        </div>
+        <div class="instagram-embed">
+          <iframe src="https://www.instagram.com/p/DfPl8FTFj8O/embed"
+            loading="lazy" allowtransparency="true" allowfullscreen
+            title="Publicación de Quinta Las Marlenes"></iframe>
+        </div>
+      </div>
+      <a href="https://www.instagram.com/p/DeztOe2DzsH/?img_index=3"
+         target="_blank" rel="noopener noreferrer">Ver publicación en Instagram →</a>
     </div>
 
     <!-- Editorial -->
     <div class="card fade project-card">
-
       <div class="img-box">
-        <img 
-          src="libros.png"
-          alt="Rediseños editoriales">
+        <img src="libros.png" alt="Rediseños editoriales">
       </div>
-
       <h3>Rediseños editoriales</h3>
-
       <p class="project-desc">
         Proyecto ficticio de rediseño de portadas y piezas editoriales,
         explorando composición tipográfica y jerarquías visuales.
       </p>
-
-      <span class="project-tags">
-        Editorial · Tipografía · Composición
-      </span>
-    </div>
-
-    <!-- Rebranding -->
-    <div class="card fade project-card">
-
-      <div class="img-box">
-        <img 
-          src="mardel.png"
-          alt="Rebranding turístico Mar del Plata">
-      </div>
-
-      <h3>Rebranding turístico · Mar del Plata</h3>
-
-      <p class="project-desc">
-        Desarrollo de identidad visual y aplicaciones gráficas
-        para una propuesta ficticia de rebranding turístico.
-      </p>
-
-      <span class="project-tags">
-        Branding · Identidad visual · Turismo
-      </span>
+      <span class="project-tags">Editorial · Tipografía · Composición</span>
     </div>
 
     <!-- Posters -->
     <div class="card fade project-card">
-
       <div class="img-box">
-        <img 
-          src="poster.png"
-          alt="Pósters para cine y series">
+        <img src="poster.png" alt="Pósters para cine y series">
       </div>
-
       <h3>Pósters para cine y series</h3>
-
       <p class="project-desc">
         Serie de pósters gráficos inspirados en películas y series,
         con foco en narrativa visual y estilo.
       </p>
-
-      <span class="project-tags">
-        Póster · Cine · Diseño gráfico
-      </span>
+      <span class="project-tags">Póster · Cine · Diseño gráfico</span>
     </div>
-
   </div>
 </section>
+
+  <!-- ILUSTRACIÓN -->
+  <section id="ilustracion">
+    <h2 class="fade">Ilustración</h2>
+    <p class="fade illustration-note">
+      Una selección de ilustraciones y exploraciones gráficas.
+    </p>
+    <div class="grid">
+      <div class="card fade project-card">
+        <div class="img-box">
+          <img src="ilustracion-1.jpg" alt="Ilustración de Florencia León">
+        </div>
+        <h3>Ilustraciones</h3>
+        <p class="project-desc">Trabajos de ilustración digital y exploración visual.</p>
+        <span class="project-tags">Ilustración digital · Photoshop</span>
+      </div>
+    </div>
+  </section>
 
   <!-- MULTIMEDIA -->
 <section id="multimedia">
@@ -626,11 +849,11 @@
     <p class="fade"><strong>Instagram:</strong> <a href="https://www.instagram.com/flowerr.designs/" target="_blank">@flowerr.designs</a></p>
 
     <h3 class="fade" style="margin-top:2rem">Herramientas y conocimientos</h3>
-    <p class="fade">Canva · CapCut · Figma · Illustrator · Photoshop (fuerte) · Premiere Pro · After Effects (básico) · HTML · CSS · JavaScript</p>
+    <p class="fade">Herramientas principales: Photoshop · Illustrator · CapCut. También: Canva · Premiere Pro · Figma · After Effects (básico) · HTML · CSS · JavaScript</p>
   </section>
 
   <footer>
-    <p>© 2025 · Florencia León</p>
+    <p>© 2026 · Florencia León</p>
   </footer>
 
 
